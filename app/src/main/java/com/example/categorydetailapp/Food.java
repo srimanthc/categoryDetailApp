@@ -90,6 +90,33 @@ public class Food implements Parcelable {
     // printed this allows us to define what info we want to see when the var
     // is printed
 
+    public static final Food[] myBreakfast = {
+            new Food("Burrito", 6.99, "Egg, Meat and Cheese in a Burrito", R.drawable.pancakes),
+            new Food("Hashbrown", 7.50, "Crispy Golden Brown", R.drawable.waffles),
+            new Food("Coffee", 1.99, "Powerful Start to your Day", R.drawable.waffles)
+
+    };
+    public static final Food[] myLunch = {
+            new Food("Chicken Quesadilla", 6.99, "4 pancakes", R.drawable.pancakes),
+            new Food("Crunchwrap Supreme", 7.50, "Crispy Golden Brown", R.drawable.waffles),
+
+
+    };
+
+    public static final Food[] myDinner = {
+            new Food("Mexican Pizza", 6.99, "4 pancakes", R.drawable.pancakes),
+            new Food("Nacho BellGrande", 7.50, "Crispy Golden Brown", R.drawable.waffles),
+            new Food("Grilled Cheese Burrito", 7.50, "Crispy Golden Brown", R.drawable.waffles)
+
+    };
+
+    public static final Food[] myDesert = {
+            new Food("Pancakes", 6.99, "4 pancakes", R.drawable.pancakes),
+            new Food("Waffles", 7.50, "Crispy Golden Brown", R.drawable.waffles)
+    };
+
+
+
     public String toString() {
         return name;
     }
