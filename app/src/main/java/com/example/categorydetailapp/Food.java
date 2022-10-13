@@ -36,6 +36,12 @@ public class Food implements Parcelable {
         imageResourceID = 0;
     }
 
+    public Food(Parcel parcel) {
+        name = parcel.readString();
+        price = parcel.readDouble();
+        desc = parcel.readString();
+        imageResourceID = parcel.readInt();
+    }
 
     //This code will most likely stay the same for all classes you use Parcelable with
     //the only thing you need to change is the class name
@@ -52,31 +58,7 @@ public class Food implements Parcelable {
                     return new Food[0];
                 }
             };
-    /** This is a "constructor" of sorts that is needed with the Parceable interface to
-     * tell the intent how to create a Food object when it is received from the intent
-     * basically it is setting each instance variable as a String or Int
-     * if the instance variables were objects themselves you would need to do more complex * code.  We need to read in the String, double, and int data.
-     *
-     * It is important that all vars listed her are in the same order
-     * in all constructors
-     *
-     * @param parcel    the parcel that is received from the intent
-     */
 
-    public Food(Parcel parcel) {
-        name = parcel.readString();
-        price = parcel.readDouble();
-        desc = parcel.readString();
-        imageResourceID = parcel.readInt();
-    }
-
-    /**
-     * This is what is used when we send the Food object through an intent
-     * It is also a method that is part of the Parceable interface and is needed
-     * to set up the object that is being sent.  Then, when it is received, the
-     * other Food constructor that accepts a Parcel reference can "unpack it"
-     *
-     */
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
@@ -86,34 +68,27 @@ public class Food implements Parcelable {
     }
 
 
-    // the toString method is called automatically whenever the Food object is
-    // printed this allows us to define what info we want to see when the var
-    // is printed
-
     public static final Food[] myBreakfast = {
-            new Food("Burrito", 6.99, "Egg, Meat and Cheese in a Burrito", R.drawable.pancakes),
-            new Food("Hashbrown", 7.50, "Crispy Golden Brown", R.drawable.waffles),
-            new Food("Coffee", 1.99, "Powerful Start to your Day", R.drawable.waffles)
+            new Food("Breakfast Burrito", 3.19, "Egg, Meat and Cheese in a Burrito", R.drawable.breakfastburrito),
+            new Food("Hashbrown", 1.29, "Crispy Golden Brown", R.drawable.hashbrow),
+            new Food("Coffee", 1.99, "Powerful Start to your Day", R.drawable.coffee)
 
     };
     public static final Food[] myLunch = {
-            new Food("Chicken Quesadilla", 6.99, "4 pancakes", R.drawable.pancakes),
-            new Food("Crunchwrap Supreme", 7.50, "Crispy Golden Brown", R.drawable.waffles),
+            new Food("Chicken Quesadilla", 4.39, "Grilled chicken in a flour tortilla", R.drawable.chicken_quesadilla),
+            new Food("Crunchwrap Supreme", 4.49, "One handed Meal Staple", R.drawable.crunchwrap_supreme),
+            new Food("Chalupa Supreme", 3.89, "Perfect blend of crunch and chewy", R.drawable.chalupa_supreme)
 
 
     };
 
     public static final Food[] myDinner = {
-            new Food("Mexican Pizza", 6.99, "4 pancakes", R.drawable.pancakes),
-            new Food("Nacho BellGrande", 7.50, "Crispy Golden Brown", R.drawable.waffles),
-            new Food("Grilled Cheese Burrito", 7.50, "Crispy Golden Brown", R.drawable.waffles)
+            new Food("Mexican Pizza", 4.49, "2 Tostadas with plenty seasoning", R.drawable.mexican_pizza),
+            new Food("Nacho BellGrande", 4.69, "King of Nachos", R.drawable.nacho_bellgrande),
+            new Food("Grilled Cheese Burrito", 4.29, "Classic burrito with 3 cheese on top", R.drawable.grilled_cheeseburrito)
 
     };
 
-    public static final Food[] myDesert = {
-            new Food("Pancakes", 6.99, "4 pancakes", R.drawable.pancakes),
-            new Food("Waffles", 7.50, "Crispy Golden Brown", R.drawable.waffles)
-    };
 
 
 
